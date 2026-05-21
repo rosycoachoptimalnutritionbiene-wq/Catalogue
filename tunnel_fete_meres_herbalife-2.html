@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🌸 Fête des Mères – Lots Herbalife | Coach Rosy</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Nunito:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --rose-ivoire: #FDF0F3;
+    --rose-doux: #F2C4CE;
+    --rose-vif: #E8829A;
+    --rose-fonce: #C05070;
+    --bleu-ciel: #87CEEB;
+    --bleu-madras: #5BAFD6;
+    --bleu-fonce: #2A7FAF;
+    --or: #C9963A;
+    --or-clair: #F2DCA0;
+    --blanc: #FFFFFF;
+    --gris-text: #5A4A4A;
+    --vert-sumup: #1B5E20;
+    --vert-wa: #25D366;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family:'Nunito',sans-serif; background:var(--rose-ivoire); color:var(--gris-text); overflow-x:hidden; }
+
+  /* === MADRAS PATTERN === */
+  .madras-bg {
+    background-color: var(--bleu-ciel);
+    background-image:
+      repeating-linear-gradient(0deg, transparent, transparent 28px, rgba(255,255,255,0.18) 28px, rgba(255,255,255,0.18) 30px),
+      repeating-linear-gradient(90deg, transparent, transparent 28px, rgba(255,255,255,0.18) 28px, rgba(255,255,255,0.18) 30px),
+      repeating-linear-gradient(45deg, transparent, transparent 14px, rgba(255,150,200,0.12) 14px, rgba(255,150,200,0.12) 16px);
+  }
+
+  /* === TOP BAND === */
+  .hero-top-band {
+    background: linear-gradient(135deg, var(--bleu-fonce), var(--bleu-madras), var(--bleu-ciel));
+    padding: 16px 20px 12px;
+    display: flex; align-items: center; justify-content: center; gap: 10px;
+  }
+  .coach-badge {
+    background: rgba(255,255,255,0.2);
+    border: 1.5px solid rgba(255,255,255,0.5);
+    border-radius: 50px; padding: 6px 18px;
+    color: white; font-size: 13px; font-weight: 700;
+    letter-spacing: 1px; text-transform: uppercase;
+  }
+
+  /* === HERO === */
+  .hero { padding: 0 0 60px; text-align: center; position: relative; overflow: hidden; }
+  .hero-madras { padding: 50px 20px 0; position: relative; }
+  .hero-madras::before {
+    content:''; position:absolute; top:0; left:0; right:0; height:220px;
+    background-color: var(--bleu-ciel);
+    background-image:
+      repeating-linear-gradient(0deg, transparent, transparent 28px, rgba(255,255,255,0.15) 28px, rgba(255,255,255,0.15) 30px),
+      repeating-linear-gradient(90deg, transparent, transparent 28px, rgba(255,255,255,0.15) 28px, rgba(255,255,255,0.15) 30px),
+      repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(255,150,200,0.12) 10px, rgba(255,150,200,0.12) 12px);
+    z-index:0;
+  }
+  .hero-card {
+    position:relative; z-index:1;
+    background:var(--blanc); border-radius:28px;
+    max-width:680px; margin:0 auto; padding:50px 40px 40px;
+    box-shadow: 0 20px 60px rgba(192,80,112,0.15);
+    border: 2px solid rgba(242,196,206,0.6);
+  }
+  .flowers-row { font-size:36px; margin-bottom:10px; letter-spacing:6px; animation:pulse 3s ease-in-out infinite; }
+  @keyframes pulse { 0%,100%{transform:scale(1)} 50%{transform:scale(1.05)} }
+  .hero-date-badge {
+    display:inline-block;
+    background:linear-gradient(135deg, var(--bleu-madras), var(--bleu-fonce));
+    color:white; border-radius:50px; padding:7px 22px;
+    font-size:13px; font-weight:700; letter-spacing:2px; text-transform:uppercase; margin-bottom:20px;
+  }
+  .hero-title {
+    font-family:'Cormorant Garamond',serif;
+    font-size:clamp(36px,7vw,64px); font-weight:700;
+    color:var(--rose-fonce); line-height:1.1; margin-bottom:8px; font-style:italic;
+  }
+  .hero-subtitle {
+    font-family:'Cormorant Garamond',serif;
+    font-size:clamp(20px,4vw,30px); font-weight:600; color:var(--bleu-fonce); margin-bottom:16px;
+  }
+  .hero-tagline { font-size:15px; color:#8A7070; line-height:1.8; max-width:480px; margin:0 auto 28px; }
+  .divider-or {
+    width:80px; height:3px;
+    background:linear-gradient(90deg, var(--rose-doux), var(--or), var(--rose-doux));
+    border-radius:2px; margin:0 auto 28px;
+  }
+  .hero-cta-btn {
+    display:inline-flex; align-items:center; gap:8px;
+    background:linear-gradient(135deg, #25D366, #128C7E);
+    color:white; border-radius:50px; padding:15px 34px;
+    font-size:16px; font-weight:700; text-decoration:none;
+    box-shadow:0 8px 24px rgba(37,211,102,0.35);
+    transition:transform 0.2s, box-shadow 0.2s;
+  }
+  .hero-cta-btn:hover { transform:translateY(-3px); box-shadow:0 14px 32px rgba(37,211,102,0.45); }
+
+  /* === INTRO === */
+  .intro-section { max-width:720px; margin:0 auto; padding:50px 24px 16px; text-align:center; }
+  .section-badge {
+    display:inline-block; background:var(--or-clair); color:var(--or);
+    border:1.5px solid var(--or); border-radius:50px; padding:6px 20px;
+    font-size:12px; font-weight:700; letter-spacing:2px; text-transform:uppercase; margin-bottom:16px;
+  }
+  .section-title {
+    font-family:'Cormorant Garamond',serif;
+    font-size:clamp(26px,5vw,40px); font-weight:700; color:var(--rose-fonce); margin-bottom:14px; line-height:1.2;
+  }
+  .section-text { font-size:15px; color:#7A6060; line-height:1.8; }
+
+  /* === PACKS === */
+  .packs-section { max-width:1100px; margin:0 auto; padding:36px 20px 60px; }
+  .packs-grid {
+    display:grid; grid-template-columns:repeat(auto-fit, minmax(310px,1fr));
+    gap:26px; margin-top:36px;
+  }
+  .pack-card {
+    background:var(--blanc); border-radius:24px; overflow:hidden;
+    box-shadow:0 8px 30px rgba(192,80,112,0.10);
+    border:1.5px solid rgba(242,196,206,0.45);
+    transition:transform 0.25s, box-shadow 0.25s;
+    display:flex; flex-direction:column;
+    position:relative;
+  }
+  .pack-card:hover { transform:translateY(-6px); box-shadow:0 18px 50px rgba(192,80,112,0.18); }
+
+  .pack-header { padding:28px 26px 20px; text-align:center; }
+  .pack-emoji { font-size:46px; margin-bottom:10px; display:block; }
+  .pack-name { font-family:'Cormorant Garamond',serif; font-size:22px; font-weight:700; color:white; line-height:1.2; margin-bottom:4px; }
+  .pack-tagline { font-size:11px; color:rgba(255,255,255,0.88); font-weight:700; letter-spacing:1.5px; text-transform:uppercase; }
+
+  .pack-body { padding:20px 24px 16px; flex:1; }
+  .pack-products-label {
+    font-size:11px; font-weight:700; color:var(--rose-fonce);
+    letter-spacing:2px; text-transform:uppercase; margin-bottom:10px;
+    display:flex; align-items:center; gap:8px;
+  }
+  .pack-products-label::after { content:''; flex:1; height:1px; background:var(--rose-doux); }
+  .pack-product-item {
+    display:flex; align-items:flex-start; gap:8px;
+    margin-bottom:9px; font-size:13.5px; color:var(--gris-text); line-height:1.4;
+  }
+  .pack-product-item::before { content:'✦'; color:var(--or); font-size:10px; flex-shrink:0; margin-top:3px; }
+
+  /* PRICE BOX */
+  .pack-price-box {
+    margin:14px 24px 0;
+    background:linear-gradient(135deg, #FFF5F7, #FDE8EE);
+    border:1.5px solid var(--rose-doux);
+    border-radius:14px; padding:12px 18px;
+    display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:8px;
+  }
+  .pack-price-label { font-size:11px; color:#9A7070; font-weight:700; text-transform:uppercase; letter-spacing:1px; }
+  .pack-price-amount {
+    font-family:'Cormorant Garamond',serif;
+    font-size:28px; font-weight:700; color:var(--rose-fonce); line-height:1;
+  }
+  .pack-price-amount span { font-size:16px; font-weight:600; }
+
+  /* ACTION BUTTONS */
+  .pack-actions {
+    padding:16px 24px 24px;
+    display:flex; flex-direction:column; gap:10px;
+    border-top:1px dashed rgba(242,196,206,0.6); margin-top:14px;
+  }
+  .btn-sumup {
+    display:flex; align-items:center; justify-content:center; gap:8px;
+    background:linear-gradient(135deg, #1A7A3C, #0F5A2A);
+    color:white; border-radius:50px; padding:12px 20px;
+    font-size:14px; font-weight:700; text-decoration:none;
+    transition:transform 0.2s, box-shadow 0.2s;
+    box-shadow:0 6px 18px rgba(26,122,60,0.3);
+  }
+  .btn-sumup:hover { transform:translateY(-2px); box-shadow:0 10px 24px rgba(26,122,60,0.4); }
+  .btn-wa {
+    display:flex; align-items:center; justify-content:center; gap:8px;
+    background:linear-gradient(135deg, #25D366, #128C7E);
+    color:white; border-radius:50px; padding:12px 20px;
+    font-size:14px; font-weight:700; text-decoration:none;
+    transition:transform 0.2s, box-shadow 0.2s;
+    box-shadow:0 6px 18px rgba(37,211,102,0.28);
+  }
+  .btn-wa:hover { transform:translateY(-2px); box-shadow:0 10px 24px rgba(37,211,102,0.4); }
+  .btn-icon { font-size:18px; }
+
+  /* Pack header colors */
+  .pack-peau    .pack-header { background:linear-gradient(135deg,#E8829A,#C05070); }
+  .pack-sport   .pack-header { background:linear-gradient(135deg,#5BAFD6,#2A7FAF); }
+  .pack-business .pack-header { background:linear-gradient(135deg,#C9963A,#A07028); }
+  .pack-apaisee .pack-header { background:linear-gradient(135deg,#9B7EC8,#6B4E9E); }
+  .pack-slim    .pack-header { background:linear-gradient(135deg,#5BC88A,#2E9A5F); }
+
+  /* RIBBON */
+  .ribbon {
+    position:absolute; top:20px; right:-28px;
+    background:linear-gradient(135deg, var(--or), #E5A030);
+    color:white; font-size:10px; font-weight:800;
+    letter-spacing:1px; text-transform:uppercase;
+    padding:6px 38px; transform:rotate(35deg);
+    box-shadow:0 3px 10px rgba(0,0,0,0.18);
+  }
+
+  /* === TRUST BAND === */
+  .trust-band {
+    background:linear-gradient(135deg, var(--rose-fonce), #A03860);
+    padding:50px 24px; text-align:center; margin:20px 0;
+  }
+  .trust-band-title {
+    font-family:'Cormorant Garamond',serif;
+    font-size:clamp(24px,4vw,36px); font-weight:700; color:white; font-style:italic; margin-bottom:8px;
+  }
+  .trust-band-sub { color:rgba(255,255,255,0.78); font-size:14px; margin-bottom:28px; }
+  .trust-points { display:flex; justify-content:center; flex-wrap:wrap; gap:16px; max-width:700px; margin:0 auto; }
+  .trust-point {
+    background:rgba(255,255,255,0.15); border:1px solid rgba(255,255,255,0.3);
+    border-radius:14px; padding:12px 18px; color:white; font-size:13px; font-weight:600;
+    display:flex; align-items:center; gap:7px;
+  }
+
+  /* === STEPS === */
+  .order-section { max-width:720px; margin:0 auto; padding:60px 24px; text-align:center; }
+  .steps-row { display:flex; justify-content:center; flex-wrap:wrap; gap:16px; margin-top:36px; }
+  .step-item {
+    background:var(--blanc); border-radius:18px; padding:22px 18px; width:170px;
+    text-align:center; border:1.5px solid var(--rose-doux);
+  }
+  .step-num {
+    width:40px; height:40px;
+    background:linear-gradient(135deg, var(--rose-vif), var(--rose-fonce));
+    border-radius:50%; color:white; font-size:17px; font-weight:700;
+    display:flex; align-items:center; justify-content:center; margin:0 auto 10px;
+  }
+  .step-text { font-size:12.5px; color:var(--gris-text); line-height:1.5; font-weight:600; }
+
+  /* === PAYMENT INFO === */
+  .payment-info {
+    background:linear-gradient(135deg, #E8F8EE, #D0F0DC);
+    border:1.5px solid #90D8A8;
+    border-radius:18px; padding:24px 28px;
+    max-width:660px; margin:0 auto 40px;
+    display:flex; align-items:flex-start; gap:14px;
+  }
+  .payment-info-icon { font-size:32px; flex-shrink:0; }
+  .payment-info-text h4 { color:#1B5E20; font-size:15px; font-weight:700; margin-bottom:6px; }
+  .payment-info-text p { color:#2E7D32; font-size:13px; line-height:1.6; }
+
+  /* === FOOTER CTA === */
+  .footer-cta { padding:60px 24px; text-align:center; position:relative; overflow:hidden; }
+  .footer-cta::before {
+    content:''; position:absolute; top:0; left:0; right:0; bottom:0;
+    background-color:var(--bleu-ciel);
+    background-image:
+      repeating-linear-gradient(0deg, transparent, transparent 28px, rgba(255,255,255,0.18) 28px, rgba(255,255,255,0.18) 30px),
+      repeating-linear-gradient(90deg, transparent, transparent 28px, rgba(255,255,255,0.18) 28px, rgba(255,255,255,0.18) 30px);
+    opacity:0.65; z-index:0;
+  }
+  .footer-cta-inner {
+    position:relative; z-index:1;
+    background:white; max-width:580px; margin:0 auto;
+    border-radius:28px; padding:48px 40px;
+    box-shadow:0 20px 60px rgba(42,127,175,0.2);
+  }
+  .footer-cta-flowers { font-size:40px; margin-bottom:14px; }
+  .footer-cta-title {
+    font-family:'Cormorant Garamond',serif; font-size:30px;
+    font-weight:700; color:var(--rose-fonce); font-style:italic; margin-bottom:10px;
+  }
+  .footer-cta-text { font-size:14px; color:#8A7070; margin-bottom:28px; line-height:1.7; }
+  .big-cta-btn {
+    display:inline-flex; align-items:center; gap:10px;
+    background:linear-gradient(135deg,#25D366,#128C7E);
+    color:white; border-radius:50px; padding:18px 40px;
+    font-size:17px; font-weight:700; text-decoration:none;
+    box-shadow:0 10px 30px rgba(37,211,102,0.4);
+    transition:transform 0.2s, box-shadow 0.2s;
+  }
+  .big-cta-btn:hover { transform:translateY(-4px); box-shadow:0 16px 40px rgba(37,211,102,0.5); }
+  .coach-footer { margin-top:26px; font-size:13px; color:#9A8080; line-height:1.8; }
+  .coach-name { font-weight:700; color:var(--rose-fonce); font-size:14px; }
+
+  /* === FOOTER BAR === */
+  .footer-bar {
+    background:linear-gradient(135deg, var(--bleu-fonce), #1A5A8F);
+    padding:18px 24px; text-align:center;
+    color:rgba(255,255,255,0.7); font-size:12px; letter-spacing:0.5px;
+  }
+  .footer-bar span { color:rgba(255,255,255,0.95); font-weight:700; }
+
+  /* === POPUP MERCI === */
+  .popup-overlay {
+    display:none; position:fixed; top:0; left:0; right:0; bottom:0;
+    background:rgba(0,0,0,0.55); z-index:999;
+    align-items:center; justify-content:center;
+  }
+  .popup-overlay.active { display:flex; }
+  .popup-box {
+    background:white; border-radius:24px; padding:40px 36px;
+    max-width:420px; width:90%; text-align:center;
+    box-shadow:0 24px 60px rgba(0,0,0,0.25);
+    animation:popIn 0.3s ease;
+  }
+  @keyframes popIn { from{transform:scale(0.85);opacity:0} to{transform:scale(1);opacity:1} }
+  .popup-flowers { font-size:48px; margin-bottom:12px; }
+  .popup-title { font-family:'Cormorant Garamond',serif; font-size:26px; font-weight:700; color:var(--rose-fonce); font-style:italic; margin-bottom:10px; }
+  .popup-text { font-size:14px; color:#7A6060; line-height:1.7; margin-bottom:22px; }
+  .popup-close {
+    background:var(--rose-fonce); color:white; border:none;
+    border-radius:50px; padding:12px 30px; font-size:14px;
+    font-weight:700; cursor:pointer; font-family:'Nunito',sans-serif;
+  }
+  .popup-close:hover { background:#A03860; }
+
+  @media(max-width:500px){
+    .hero-card{padding:34px 18px 28px;}
+    .pack-actions{padding:14px 18px 20px;}
+    .footer-cta-inner{padding:34px 22px;}
+    .steps-row{gap:10px;}
+    .step-item{width:140px; padding:16px 12px;}
+    .payment-info{flex-direction:column;}
+  }
+</style>
+</head>
+<body>
+
+<!-- POPUP MERCI -->
+<div class="popup-overlay" id="popupMerci">
+  <div class="popup-box">
+    <div class="popup-flowers">🌸💝🌺</div>
+    <div class="popup-title">Merci pour votre commande !</div>
+    <p class="popup-text">
+      Votre paiement a bien été initié via SumUp. 💳<br><br>
+      <strong>Coach Rosy vous contactera sur WhatsApp</strong> dans les plus brefs délais pour confirmer votre lot et organiser la livraison. 🎀<br><br>
+      À très vite ! 🌷
+    </p>
+    <button class="popup-close" onclick="document.getElementById('popupMerci').classList.remove('active')">
+      Fermer ✕
+    </button>
+  </div>
+</div>
+
+<!-- TOP BAND -->
+<div class="hero-top-band">
+  <div class="coach-badge">🌸 Coach Rosy – Distributrice Herbalife · Guadeloupe</div>
+</div>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-madras">
+    <div class="hero-card">
+      <div class="flowers-row">🌸🌺🌷</div>
+      <div class="hero-date-badge">🗓️ Fête des Mères · 31 Mai 2026</div>
+      <h1 class="hero-title">À ma maman d'amour</h1>
+      <h2 class="hero-subtitle">À ma mère chérie 💝</h2>
+      <div class="divider-or"></div>
+      <p class="hero-tagline">
+        Offrez à votre maman le plus beau des cadeaux : <strong>sa santé, son éclat, son énergie.</strong><br>
+        5 lots Herbalife soigneusement sélectionnés · Paiement sécurisé SumUp ✨
+      </p>
+      <a href="https://wa.me/+590691252269?text=Bonjour%20Coach%20Rosy%20!%20Je%20souhaite%20voir%20vos%20packs%20F%C3%AAte%20des%20M%C3%A8res%20Herbalife%20%F0%9F%8C%B8"
+         class="hero-cta-btn">
+        <span>💬</span> Contacter Coach Rosy
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- INTRO -->
+<div class="intro-section">
+  <div class="section-badge">✦ Paiement sécurisé · Livraison Guadeloupe ✦</div>
+  <h2 class="section-title">5 Packs pensés pour toutes les mamans</h2>
+  <p class="section-text">
+    Parce que chaque maman est unique, Coach Rosy a sélectionné <strong>5 lots cadeaux Herbalife</strong>.<br>
+    Des produits de qualité scientifiquement formulés — pour prendre soin d'elle, de l'intérieur comme de l'extérieur. 🌺
+  </p>
+</div>
+
+<!-- PAYMENT INFO BANNER -->
+<div style="max-width:1100px; margin:0 auto; padding:0 20px 10px;">
+  <div class="payment-info">
+    <div class="payment-info-icon">💳</div>
+    <div class="payment-info-text">
+      <h4>Paiement sécurisé SumUp + Confirmation WhatsApp automatique</h4>
+      <p>Réglez en ligne en toute sécurité avec <strong>SumUp</strong> (CB, Visa, Mastercard). Dès votre commande validée,
+      vous recevrez automatiquement un <strong>message WhatsApp de confirmation</strong> avec les détails de livraison. 🎀</p>
+    </div>
+  </div>
+</div>
+
+<!-- PACKS GRID -->
+<div class="packs-section">
+  <div class="packs-grid">
+
+    <!-- PACK 1 : SOIGNÉE & COQUETTE – 169€ -->
+    <div class="pack-card pack-peau" style="overflow:hidden; position:relative;">
+      <div class="ribbon">Top Vente</div>
+      <div class="pack-header">
+        <span class="pack-emoji">💅</span>
+        <div class="pack-name">Mère Soignée & Coquette</div>
+        <div class="pack-tagline">HL Skin – Éclat & Beauté</div>
+      </div>
+      <div class="pack-body">
+        <div class="pack-products-label">Produits inclus</div>
+        <div class="pack-product-item">Sérum HL Skin – Éclat & anti-âge intensif</div>
+        <div class="pack-product-item">Gel nettoyant doux – Peau fraîche & purifiée</div>
+        <div class="pack-product-item">Crème de tension ultime – Fermeté & hydratation</div>
+      </div>
+      <div class="pack-price-box">
+        <div>
+          <div class="pack-price-label">Prix du pack cadeau</div>
+          <div class="pack-price-amount">169 <span>€</span></div>
+        </div>
+        <div style="font-size:12px; color:#9A7070; font-style:italic;">🎀 Idéal pour lui offrir l'éclat</div>
+      </div>
+      <div class="pack-actions">
+        <a href="https://pay.sumup.com/b2c/QQJ97AK2"
+           class="btn-sumup"
+           onclick="ouvrirPopup(event, 'https://pay.sumup.com/b2c/QQJ97AK2')">
+          <span class="btn-icon">💳</span> Payer maintenant – 169€
+        </a>
+        <a href="https://wa.me/+590691252269?text=Bonjour%20Coach%20Rosy%20!%20%F0%9F%8C%B8%20Je%20viens%20de%20payer%20le%20Pack%20M%C3%A8re%20Soign%C3%A9e%20%26%20Coquette%20(169%E2%82%AC)%20via%20SumUp.%20Pouvez-vous%20me%20confirmer%20ma%20commande%20et%20les%20d%C3%A9tails%20de%20livraison%20?%20Merci%20!"
+           class="btn-wa">
+          <span class="btn-icon">💬</span> Confirmer sur WhatsApp
+        </a>
+      </div>
+    </div>
+
+    <!-- PACK 2 : ACTIVE & SPORTIVE – 106€ -->
+    <div class="pack-card pack-sport">
+      <div class="pack-header">
+        <span class="pack-emoji">💪</span>
+        <div class="pack-name">Mère Active & Sportive</div>
+        <div class="pack-tagline">Performance & Vitalité</div>
+      </div>
+      <div class="pack-body">
+        <div class="pack-products-label">Produits inclus</div>
+        <div class="pack-product-item">Thé Pêche Herbalife – Énergie & métabolisme boostés</div>
+        <div class="pack-product-item">CR7 Drive – Hydratation & endurance sportive</div>
+        <div class="pack-product-item">Rebuild Strength – 7 sachets récupération musculaire</div>
+      </div>
+      <div class="pack-price-box">
+        <div>
+          <div class="pack-price-label">Prix du pack cadeau</div>
+          <div class="pack-price-amount">106 <span>€</span></div>
+        </div>
+        <div style="font-size:12px; color:#9A7070; font-style:italic;">⚡ Pour la maman dynamo !</div>
+      </div>
+      <div class="pack-actions">
+        <a href="https://pay.sumup.com/b2c/Q5BMORDG"
+           class="btn-sumup"
+           onclick="ouvrirPopup(event, 'https://pay.sumup.com/b2c/Q5BMORDG')">
+          <span class="btn-icon">💳</span> Payer maintenant – 106€
+        </a>
+        <a href="https://wa.me/+590691252269?text=Bonjour%20Coach%20Rosy%20!%20%F0%9F%8C%B8%20Je%20viens%20de%20payer%20le%20Pack%20M%C3%A8re%20Active%20%26%20Sportive%20(106%E2%82%AC)%20via%20SumUp.%20Pouvez-vous%20confirmer%20ma%20commande%20et%20les%20d%C3%A9tails%20de%20livraison%20?%20Merci%20!"
+           class="btn-wa">
+          <span class="btn-icon">💬</span> Confirmer sur WhatsApp
+        </a>
+      </div>
+    </div>
+
+    <!-- PACK 3 : ENTREPRENEUR – 210€ -->
+    <div class="pack-card pack-business">
+      <div class="pack-header">
+        <span class="pack-emoji">👩‍💼</span>
+        <div class="pack-name">Mère Entrepreneur</div>
+        <div class="pack-tagline">Femme d'Affaires – Focus & Clarté</div>
+      </div>
+      <div class="pack-body">
+        <div class="pack-products-label">Produits inclus</div>
+        <div class="pack-product-item">Formula 1 – Repas nutritif complet en 1 shaker</div>
+        <div class="pack-product-item">Créatine Herbalife – Force & concentration mentale</div>
+        <div class="pack-product-item">Activ'Mind – Mémoire, clarté & performance cognitive</div>
+        <div class="pack-product-item">Aloès Herbalife – Digestion & bien-être intestinal</div>
+      </div>
+      <div class="pack-price-box">
+        <div>
+          <div class="pack-price-label">Prix du pack cadeau</div>
+          <div class="pack-price-amount">210 <span>€</span></div>
+        </div>
+        <div style="font-size:12px; color:#9A7070; font-style:italic;">🏆 Pour la maman qui gère tout</div>
+      </div>
+      <div class="pack-actions">
+        <a href="https://pay.sumup.com/b2c/QJAC1SOE"
+           class="btn-sumup"
+           onclick="ouvrirPopup(event, 'https://pay.sumup.com/b2c/QJAC1SOE')">
+          <span class="btn-icon">💳</span> Payer maintenant – 210€
+        </a>
+        <a href="https://wa.me/+590691252269?text=Bonjour%20Coach%20Rosy%20!%20%F0%9F%8C%B8%20Je%20viens%20de%20payer%20le%20Pack%20M%C3%A8re%20Entrepreneur%20(210%E2%82%AC)%20via%20SumUp.%20Pouvez-vous%20confirmer%20ma%20commande%20et%20les%20d%C3%A9tails%20de%20livraison%20?%20Merci%20!"
+           class="btn-wa">
+          <span class="btn-icon">💬</span> Confirmer sur WhatsApp
+        </a>
+      </div>
+    </div>
+
+    <!-- PACK 4 : APAISÉE – 210€ -->
+    <div class="pack-card pack-apaisee">
+      <div class="pack-header">
+        <span class="pack-emoji">🌙</span>
+        <div class="pack-name">Mère Apaisée</div>
+        <div class="pack-tagline">Sérénité & Bien-être Profond</div>
+      </div>
+      <div class="pack-body">
+        <div class="pack-products-label">Produits inclus</div>
+        <div class="pack-product-item">Night Mode – Sommeil réparateur & relaxation nocturne</div>
+        <div class="pack-product-item">Aloès Herbalife – Équilibre & douceur digestive</div>
+        <div class="pack-product-item">Skin Collagène – Jeunesse, fermeté & éclat cutané</div>
+      </div>
+      <div class="pack-price-box">
+        <div>
+          <div class="pack-price-label">Prix du pack cadeau</div>
+          <div class="pack-price-amount">210 <span>€</span></div>
+        </div>
+        <div style="font-size:12px; color:#9A7070; font-style:italic;">🕊️ Pour la maman qui mérite la paix</div>
+      </div>
+      <div class="pack-actions">
+        <a href="https://pay.sumup.com/b2c/Q5CU94FK"
+           class="btn-sumup"
+           onclick="ouvrirPopup(event, 'https://pay.sumup.com/b2c/Q5CU94FK')">
+          <span class="btn-icon">💳</span> Payer maintenant – 210€
+        </a>
+        <a href="https://wa.me/+590691252269?text=Bonjour%20Coach%20Rosy%20!%20%F0%9F%8C%B8%20Je%20viens%20de%20payer%20le%20Pack%20M%C3%A8re%20Apais%C3%A9e%20(210%E2%82%AC)%20via%20SumUp.%20Pouvez-vous%20confirmer%20ma%20commande%20et%20les%20d%C3%A9tails%20de%20livraison%20?%20Merci%20!"
+           class="btn-wa">
+          <span class="btn-icon">💬</span> Confirmer sur WhatsApp
+        </a>
+      </div>
+    </div>
+
+    <!-- PACK 5 : SLIM – 255€ -->
+    <div class="pack-card pack-slim" style="overflow:hidden; position:relative;">
+      <div class="ribbon" style="background:linear-gradient(135deg,#2E9A5F,#1A6B40);">Pack Complet</div>
+      <div class="pack-header">
+        <span class="pack-emoji">🌿</span>
+        <div class="pack-name">Mère Slim</div>
+        <div class="pack-tagline">Silhouette & Légèreté au Naturel</div>
+      </div>
+      <div class="pack-body">
+        <div class="pack-products-label">Produits inclus</div>
+        <div class="pack-product-item">Thé Herbalife – Brûle-graisses naturel & détox</div>
+        <div class="pack-product-item">Aloès Herbalife – Ventre plat & digestion facilitée</div>
+        <div class="pack-product-item">Formula 1 – Repas minceur sain & rassasiant</div>
+        <div class="pack-product-item">Phyto Complète (Ventre Plat) – Complexe minceur global</div>
+      </div>
+      <div class="pack-price-box">
+        <div>
+          <div class="pack-price-label">Prix du pack cadeau</div>
+          <div class="pack-price-amount">255 <span>€</span></div>
+        </div>
+        <div style="font-size:12px; color:#9A7070; font-style:italic;">✨ Pack le plus complet</div>
+      </div>
+      <div class="pack-actions">
+        <a href="https://pay.sumup.com/b2c/Q60SC5JG"
+           class="btn-sumup"
+           onclick="ouvrirPopup(event, 'https://pay.sumup.com/b2c/Q60SC5JG')">
+          <span class="btn-icon">💳</span> Payer maintenant – 255€
+        </a>
+        <a href="https://wa.me/+590691252269?text=Bonjour%20Coach%20Rosy%20!%20%F0%9F%8C%B8%20Je%20viens%20de%20payer%20le%20Pack%20M%C3%A8re%20Slim%20(255%E2%82%AC)%20via%20SumUp.%20Pouvez-vous%20confirmer%20ma%20commande%20et%20les%20d%C3%A9tails%20de%20livraison%20?%20Merci%20!"
+           class="btn-wa">
+          <span class="btn-icon">💬</span> Confirmer sur WhatsApp
+        </a>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- TRUST BAND -->
+<div class="trust-band">
+  <h3 class="trust-band-title">Pourquoi choisir Herbalife pour votre maman ? 💝</h3>
+  <p class="trust-band-sub">Des produits de qualité · Un accompagnement personnalisé</p>
+  <div class="trust-points">
+    <div class="trust-point"><span>🔬</span> Scientifiquement formulés</div>
+    <div class="trust-point"><span>🌿</span> Ingrédients naturels</div>
+    <div class="trust-point"><span>💳</span> Paiement sécurisé SumUp</div>
+    <div class="trust-point"><span>🚚</span> Livraison Guadeloupe</div>
+    <div class="trust-point"><span>🎀</span> Emballage cadeau dispo</div>
+    <div class="trust-point"><span>👩‍⚕️</span> Suivi Coach inclus</div>
+  </div>
+</div>
+
+<!-- STEPS -->
+<div class="order-section">
+  <div class="section-badge">✦ Simple & Sécurisé ✦</div>
+  <h2 class="section-title">Comment ça marche ?</h2>
+  <div class="steps-row">
+    <div class="step-item">
+      <div class="step-num">1</div>
+      <div class="step-text">Choisissez le pack de votre maman 🌸</div>
+    </div>
+    <div class="step-item">
+      <div class="step-num">2</div>
+      <div class="step-text">Payez en ligne via SumUp 💳</div>
+    </div>
+    <div class="step-item">
+      <div class="step-num">3</div>
+      <div class="step-text">Confirmez sur WhatsApp 💬</div>
+    </div>
+    <div class="step-item">
+      <div class="step-num">4</div>
+      <div class="step-text">Livraison en Guadeloupe 🇬🇵</div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER CTA -->
+<div class="footer-cta">
+  <div class="footer-cta-inner">
+    <div class="footer-cta-flowers">🌺💝🌸</div>
+    <div class="footer-cta-title">Commandez avant le 28 mai !</div>
+    <p class="footer-cta-text">
+      Garantissez la livraison de votre cadeau <strong>avant le 31 mai</strong>.
+      Les stocks sont limités — ne tardez pas ! 🎀
+    </p>
+    <a href="https://wa.me/+590691252269?text=Bonjour%20Coach%20Rosy%20!%20%F0%9F%8C%B8%20Je%20souhaite%20commander%20un%20pack%20F%C3%AAte%20des%20M%C3%A8res%20Herbalife.%20Pouvez-vous%20m%27aider%20s%27il%20vous%20pla%C3%AEt%20?"
+       class="big-cta-btn">
+      <span>💬</span> Contacter Coach Rosy sur WhatsApp
+    </a>
+    <div class="coach-footer">
+      <div class="coach-name">Coach Rosy – Superviseure & Distributrice Herbalife</div>
+      <div>📞 0691 25 22 69 · Guadeloupe 🇬🇵</div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER BAR -->
+<div class="footer-bar">
+  🌸 <span>Fête des Mères 2026</span> · Paiement sécurisé SumUp · Livraison Guadeloupe · <span>Coach Rosy – Herbalife</span> 🌸
+</div>
+
+<script>
+function ouvrirPopup(e, url) {
+  e.preventDefault();
+  window.open(url, '_blank');
+  setTimeout(function() {
+    document.getElementById('popupMerci').classList.add('active');
+  }, 1200);
+}
+</script>
+</body>
+</html>
