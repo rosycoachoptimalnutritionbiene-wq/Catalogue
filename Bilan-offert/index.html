@@ -51,6 +51,7 @@ input:focus-visible,button:focus-visible,a:focus-visible{outline:3px solid var(-
 #result p{margin:0 0 12px}
 .warn{background:var(--bg);border-radius:12px;padding:12px 14px;font-size:15px;border:1px solid var(--line)}
 .wa{background:#1fa855;color:#fff;margin:16px 0 10px}
+.rdv{background:var(--bg);color:var(--pink);border:2px solid var(--pink);margin:0 0 8px}
 .alt{font-size:15px;color:var(--soft);margin:0}
 .copy{font:inherit;font-size:15px;font-weight:700;background:none;border:1px solid var(--line);color:var(--ink);border-radius:999px;padding:10px 16px;margin-top:10px;cursor:pointer;min-height:44px}
 footer{border-top:1px solid var(--line);color:var(--soft);font-size:14px;padding:22px max(4vw,16px) 34px;text-align:center}
@@ -103,7 +104,7 @@ footer strong{color:var(--ink)}
 <label class="field"><span>Numéro WhatsApp ou téléphone</span><input type="tel" id="tel" autocomplete="tel" inputmode="tel"></label>
 </fieldset>
 
-<label class="consent"><input type="checkbox" id="ok"><span>J'accepte d'envoyer mes réponses à Coach Rosy par WhatsApp pour recevoir mon bilan offert. Elles ne sont pas enregistrées sur ce site.</span></label>
+<label class="consent"><input type="checkbox" id="ok"><span>J'accepte d'envoyer mes réponses à Coach Rosy par WhatsApp pour recevoir ma recommandation personnalisée. Elles ne sont pas enregistrées sur ce site.</span></label>
 <p class="err" id="err" role="alert"></p>
 <button class="btn go" type="submit">Voir mon profil</button>
 </form>
@@ -113,7 +114,9 @@ footer strong{color:var(--ink)}
 <p id="prof"></p>
 <p id="txt"></p>
 <p class="warn" id="med" hidden>Vous suivez un traitement : nous adapterons nos conseils ensemble. Montrez toujours votre traitement à votre pharmacien ou à votre médecin avant de démarrer une cure.</p>
-<a class="btn wa" id="wa" href="#" target="_blank" rel="noopener">Recevoir mon bilan offert sur WhatsApp</a>
+<a class="btn wa" id="wa" href="#" target="_blank" rel="noopener">Recevoir ma recommandation sur WhatsApp</a>
+<a class="btn rdv" href="https://tidycal.com/web-entreprises/votre-recommandation-bien-etre-personnalisee-30-min-offertes" target="_blank" rel="noopener">Réserver mes 30 min offertes avec Coach Rosy</a>
+<p class="alt">Choisissez le créneau qui vous convient : je vous appelle à l'heure dite.</p>
 <p class="alt">Pas de WhatsApp ? Appelez Coach Rosy au <strong>0691 25 22 69</strong>.</p>
 <button class="copy" type="button" id="cp">Copier mes réponses</button>
 </section>
@@ -163,7 +166,7 @@ f.addEventListener("submit", e => {
     return;
   }
   if (!document.getElementById("ok").checked) {
-    err.textContent = "Merci de cocher la case d'accord pour recevoir votre bilan."; return;
+    err.textContent = "Merci de cocher la case d'accord pour recevoir votre recommandation."; return;
   }
   err.textContent = "";
   const n = {A:0,B:0,C:0};
@@ -185,7 +188,7 @@ f.addEventListener("submit", e => {
     "5. Objectif 30 jours : " + goals.join(", "),
     "",
     "Mon profil : " + PROFILS[p][0],
-    "Je souhaite recevoir mon bilan offert."
+    "Je souhaite recevoir ma recommandation personnalisée."
   ].join("\n");
   wa.href = "https://wa.me/" + PHONE + "?text=" + encodeURIComponent(msg);
   res.classList.add("on");
