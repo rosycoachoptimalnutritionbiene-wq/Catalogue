@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bilan Bien-Être Offert</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;800&display=swap">
+<style>
+/* VOICE: chaleureuse, simple, rassurante pour des femmes de 60 ans et plus
+   IDEA: la fiche bilan qu'on remplit avec sa coach, une question par carte
+   PICTURE: le questionnaire lui-même, en une colonne calme, puis la carte résultat
+   COLOUR and TYPE: vert Coach Rosy, rose accent, fond blanc ; Nunito, grands corps
+   LAYOUT: bandeau vert pleine largeur, colonne de 640px, bouton WhatsApp en bas */
+:root{color-scheme:light dark;
+--bg:light-dark(#ffffff,#0e1a12);--ink:light-dark(#14281b,#e8f5ec);--soft:light-dark(#4b5b50,#a9c2b1);
+--green:#16a34a;--deep:light-dark(#14532d,#0b2a17);--pink:light-dark(#be185d,#f472b6);
+--card:light-dark(#f0fdf4,#14261a);--line:light-dark(#cfe9d8,#26402e);--rose:light-dark(#fff1f2,#2a1620)}
+:root[data-theme=light]{color-scheme:light}:root[data-theme=dark]{color-scheme:dark}
+*{box-sizing:border-box;min-width:0}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.55 Nunito,system-ui,sans-serif;overflow-x:clip}
+header{background:var(--deep);color:#fff;padding:clamp(28px,5vw,56px) max(5vw,18px) clamp(30px,5vw,52px)}
+header .in{max-width:640px;margin:0 auto}
+.tag{font-size:14px;font-weight:600;opacity:.85;margin:0 0 10px}
+h1{font-size:clamp(32px,7vw,46px);line-height:1.05;margin:0;text-wrap:balance;font-weight:800}
+h1 b{display:block;color:#f9a8d4}
+header p{margin:14px 0 0;font-size:18px;max-width:34em}
+main{max-width:640px;margin:0 auto;padding:28px max(4vw,16px) 40px}
+fieldset{border:1px solid var(--line);background:var(--card);border-radius:16px;padding:18px 18px 12px;margin:0 0 18px}
+legend{font-weight:800;font-size:18px;padding:0 6px;line-height:1.3}
+.hint{color:var(--soft);font-size:15px;margin:2px 0 8px}
+label.opt{display:flex;gap:12px;align-items:flex-start;padding:11px 12px;margin:6px 0;border-radius:12px;background:var(--bg);border:1px solid var(--line);cursor:pointer;min-height:48px}
+label.opt input{width:22px;height:22px;margin:2px 0 0;flex:none;accent-color:var(--green)}
+label.opt:has(input:checked){border-color:var(--green);box-shadow:0 0 0 2px var(--green) inset}
+.field{display:block;margin:8px 0 10px}
+.field span{display:block;font-weight:600;margin-bottom:6px}
+input[type=text],input[type=tel]{width:100%;font:inherit;font-size:17px;padding:12px 14px;border-radius:12px;border:1px solid var(--line);background:var(--bg);color:var(--ink);min-height:48px}
+input:focus-visible,button:focus-visible,a:focus-visible{outline:3px solid var(--pink);outline-offset:2px}
+.consent{display:flex;gap:12px;align-items:flex-start;font-size:15px;margin:4px 0 18px}
+.consent input{width:22px;height:22px;flex:none;margin-top:2px;accent-color:var(--green)}
+.btn{display:block;width:100%;text-align:center;font:inherit;font-weight:800;font-size:19px;padding:16px;border-radius:999px;border:0;cursor:pointer;text-decoration:none;min-height:56px}
+.go{background:var(--green);color:#fff}
+.err{color:var(--pink);font-weight:700;margin:0 0 12px;min-height:1em}
+.bad{border-color:var(--pink)!important}
+#result{display:none;border-radius:18px;background:var(--rose);border:2px solid var(--pink);padding:22px 20px;margin-top:6px}
+#result.on{display:block;animation:rise .4s ease-out}
+@keyframes rise{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+@media(prefers-reduced-motion:reduce){#result.on{animation:none}}
+#result h2{margin:0 0 4px;font-size:15px;color:var(--soft);font-weight:600}
+#prof{font-size:clamp(26px,6vw,34px);line-height:1.1;font-weight:800;color:var(--pink);margin:0 0 10px}
+#result p{margin:0 0 12px}
+.warn{background:var(--bg);border-radius:12px;padding:12px 14px;font-size:15px;border:1px solid var(--line)}
+.wa{background:#1fa855;color:#fff;margin:16px 0 10px}
+.alt{font-size:15px;color:var(--soft);margin:0}
+.copy{font:inherit;font-size:15px;font-weight:700;background:none;border:1px solid var(--line);color:var(--ink);border-radius:999px;padding:10px 16px;margin-top:10px;cursor:pointer;min-height:44px}
+footer{border-top:1px solid var(--line);color:var(--soft);font-size:14px;padding:22px max(4vw,16px) 34px;text-align:center}
+footer strong{color:var(--ink)}
+</style>
+</head>
+<body>
+<header><div class="in">
+<p class="tag">Coach Rosy & Gisèle · Marie-Galante & en direct</p>
+<h1>Votre bilan bien-être <b>offert</b></h1>
+<p>Peau, souplesse et vitalité : 7 questions, 1 minute. Vous recevez ensuite votre recommandation personnalisée sur WhatsApp.</p>
+</div></header>
+
+<main>
+<form id="f" novalidate>
+<fieldset id="q1"><legend>1. Comment se portent vos articulations au réveil ?</legend>
+<label class="opt"><input type="radio" name="q1" value="A"><span>Souples, aucune gêne particulière</span></label>
+<label class="opt"><input type="radio" name="q1" value="B"><span>Quelques petites raideurs passagères</span></label>
+<label class="opt"><input type="radio" name="q1" value="C"><span>Raideurs fréquentes (genoux, mains ou dos)</span></label>
+</fieldset>
+
+<fieldset id="q2"><legend>2. Comment trouvez-vous votre peau, vos ongles et vos cheveux ?</legend>
+<label class="opt"><input type="radio" name="q2" value="A"><span>En pleine forme, je veux préserver mon capital</span></label>
+<label class="opt"><input type="radio" name="q2" value="B"><span>Peau un peu sèche, manque d'éclat ou ongles fragiles</span></label>
+<label class="opt"><input type="radio" name="q2" value="C"><span>Perte de fermeté marquée et peau très sèche</span></label>
+</fieldset>
+
+<fieldset id="q3"><legend>3. Quelle quantité d'eau buvez-vous par jour ?</legend>
+<label class="opt"><input type="radio" name="q3" value="A"><span>Plus de 1,5 litre facilement</span></label>
+<label class="opt"><input type="radio" name="q3" value="B"><span>Environ 1 litre, j'oublie souvent de boire</span></label>
+<label class="opt"><input type="radio" name="q3" value="C"><span>Moins d'un litre par jour</span></label>
+</fieldset>
+
+<fieldset id="q4"><legend>4. Suivez-vous un traitement médical ?</legend>
+<p class="hint">Par exemple : anticoagulants, aspirine, traitement pour la thyroïde.</p>
+<label class="opt"><input type="radio" name="q4" value="Non"><span>Non, aucun traitement médical</span></label>
+<label class="opt"><input type="radio" name="q4" value="Oui"><span>Oui (nous en parlerons ensemble pour adapter les conseils)</span></label>
+</fieldset>
+
+<fieldset id="q5"><legend>5. Votre objectif pour les 30 prochains jours</legend>
+<p class="hint">Plusieurs choix possibles.</p>
+<label class="opt"><input type="checkbox" name="q5" value="Éclat et fermeté de la peau"><span>Retrouver de l'éclat et de la fermeté pour ma peau</span></label>
+<label class="opt"><input type="checkbox" name="q5" value="Souplesse et confort articulaire"><span>Gagner en souplesse et en confort au quotidien</span></label>
+<label class="opt"><input type="checkbox" name="q5" value="Hydratation et vitalité"><span>Améliorer mon hydratation et ma vitalité</span></label>
+<label class="opt"><input type="checkbox" name="q5" value="Cure complète accompagnée"><span>Démarrer une cure complète accompagnée</span></label>
+</fieldset>
+
+<fieldset id="q6"><legend>6 et 7. Vos coordonnées</legend>
+<label class="field"><span>Prénom et nom</span><input type="text" id="nom" autocomplete="name"></label>
+<label class="field"><span>Numéro WhatsApp ou téléphone</span><input type="tel" id="tel" autocomplete="tel" inputmode="tel"></label>
+</fieldset>
+
+<label class="consent"><input type="checkbox" id="ok"><span>J'accepte d'envoyer mes réponses à Coach Rosy par WhatsApp pour recevoir mon bilan offert. Elles ne sont pas enregistrées sur ce site.</span></label>
+<p class="err" id="err" role="alert"></p>
+<button class="btn go" type="submit">Voir mon profil</button>
+</form>
+
+<section id="result" aria-live="polite">
+<h2>Votre profil</h2>
+<p id="prof"></p>
+<p id="txt"></p>
+<p class="warn" id="med" hidden>Vous suivez un traitement : nous adapterons nos conseils ensemble. Montrez toujours votre traitement à votre pharmacien ou à votre médecin avant de démarrer une cure.</p>
+<a class="btn wa" id="wa" href="#" target="_blank" rel="noopener">Recevoir mon bilan offert sur WhatsApp</a>
+<p class="alt">Pas de WhatsApp ? Appelez Coach Rosy au <strong>0691 25 22 69</strong>.</p>
+<button class="copy" type="button" id="cp">Copier mes réponses</button>
+</section>
+</main>
+
+<footer>
+<p><strong>Coach Rosy & Gisèle</strong> · Distributrices indépendantes Herbalife · WhatsApp 0691 25 22 69</p>
+<p>Les compléments alimentaires ne remplacent pas une alimentation variée et équilibrée ni un mode de vie sain. Ce bilan ne constitue pas un avis médical.</p>
+</footer>
+
+<script>
+{
+const PHONE = "590691252269";
+const LABELS = {
+  q1:{A:"Souples, aucune gêne",B:"Petites raideurs passagères",C:"Raideurs fréquentes"},
+  q2:{A:"En pleine forme",B:"Peau sèche, manque d'éclat ou ongles fragiles",C:"Perte de fermeté et peau très sèche"},
+  q3:{A:"Plus de 1,5 litre",B:"Environ 1 litre",C:"Moins d'un litre"}
+};
+const PROFILS = {
+  A:["Profil Prévention","Votre capital bien-être est bien préservé. L'objectif : le garder le plus longtemps possible, avec une routine simple et régulière."],
+  B:["Profil Éclat & Souplesse","Quelques signaux de fatigue apparaissent. Une routine suivie peut vous aider à retrouver confort au quotidien et éclat de la peau."],
+  C:["Profil Confort Global 60+","Vos réponses montrent plusieurs besoins à la fois. Un accompagnement suivi, pas à pas, est le plus adapté pour vous."]
+};
+const f = document.getElementById("f"), err = document.getElementById("err");
+const res = document.getElementById("result"), wa = document.getElementById("wa");
+let msg = "";
+const val = n => (f.querySelector(`input[name=${n}]:checked`)||{}).value;
+
+f.addEventListener("change", e => {
+  const fs = e.target.closest("fieldset"); if (fs) fs.classList.remove("bad");
+});
+
+f.addEventListener("submit", e => {
+  e.preventDefault();
+  document.querySelectorAll(".bad").forEach(x => x.classList.remove("bad"));
+  const goals = [...f.querySelectorAll("input[name=q5]:checked")].map(x => x.value);
+  const nom = document.getElementById("nom").value.trim();
+  const tel = document.getElementById("tel").value.trim();
+  const missing = [];
+  ["q1","q2","q3","q4"].forEach(q => { if (!val(q)) missing.push(q); });
+  if (!goals.length) missing.push("q5");
+  if (!nom || !tel) missing.push("q6");
+  if (missing.length) {
+    missing.forEach(id => document.getElementById(id).classList.add("bad"));
+    err.textContent = "Merci de répondre à toutes les questions (en rose).";
+    document.getElementById(missing[0]).scrollIntoView({behavior:"smooth",block:"center"});
+    return;
+  }
+  if (!document.getElementById("ok").checked) {
+    err.textContent = "Merci de cocher la case d'accord pour recevoir votre bilan."; return;
+  }
+  err.textContent = "";
+  const n = {A:0,B:0,C:0};
+  ["q1","q2","q3"].forEach(q => n[val(q)]++);
+  const p = n.C >= 2 ? "C" : n.A >= 2 ? "A" : "B";
+  const treat = val("q4") === "Oui";
+  document.getElementById("prof").textContent = PROFILS[p][0];
+  document.getElementById("txt").textContent = PROFILS[p][1];
+  document.getElementById("med").hidden = !treat;
+  msg = [
+    "Bonjour Coach Rosy, voici mon bilan bien-être :",
+    "",
+    "Prénom et nom : " + nom,
+    "Téléphone : " + tel,
+    "1. Articulations au réveil : " + LABELS.q1[val("q1")],
+    "2. Peau, ongles, cheveux : " + LABELS.q2[val("q2")],
+    "3. Eau par jour : " + LABELS.q3[val("q3")],
+    "4. Traitement médical : " + (treat ? "Oui, à préciser ensemble" : "Non"),
+    "5. Objectif 30 jours : " + goals.join(", "),
+    "",
+    "Mon profil : " + PROFILS[p][0],
+    "Je souhaite recevoir mon bilan offert."
+  ].join("\n");
+  wa.href = "https://wa.me/" + PHONE + "?text=" + encodeURIComponent(msg);
+  res.classList.add("on");
+  res.scrollIntoView({behavior:"smooth",block:"start"});
+});
+
+document.getElementById("cp").addEventListener("click", async e => {
+  try { await navigator.clipboard.writeText(msg); e.target.textContent = "Réponses copiées"; }
+  catch (x) { e.target.textContent = "Copie impossible : notez le numéro ci-dessus"; }
+});
+}
+</script>
+</body>
+</html>
